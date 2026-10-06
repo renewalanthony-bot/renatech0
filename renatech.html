@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="RenaTech — Professional video editing, photo editing, talking flyers, graphic design and video adverts at affordable prices.">
+
+  <meta name="theme-color" content="#0b0b0c">
+
+  <title>RenaTech | Creative Media & Digital Design</title>
+
+  <style>
+
+    /* =====================================================
+       RenaTech Professional Website
+       ===================================================== */
+
+    :root {
+      --bg: #0b0b0c;
+      --bg-soft: #121214;
+      --card: #171719;
+      --text: #f5f2ed;
+      --muted: #aaa6a0;
+      --accent: #c98a4a;
+      --accent-light: #e2b77f;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 24px 70px rgba(0,0,0,.28);
+      --radius: 22px;
+    }
+
+    body.light {
+      --bg: #f4f1ec;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --text: #151515;
+      --muted: #68645e;
+      --line: rgba(0,0,0,.10);
+      --shadow: 0 24px 70px rgba(31,24,15,.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background .3s ease, color .3s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent-light);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      letter-spacing: -.06em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      letter-spacing: -.04em;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(11,11,12,.72);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+
+    body.light header {
+      background: rgba(244,241,236,.82);
+    }
+
+    header.scrolled {
+      border-bottom-color: var(--line);
+    }
+
+    nav {
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--accent-light),
+          var(--accent)
+        );
+
+      color: #15110d;
+      font-weight: 950;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: .92rem;
+      color: var(--muted);
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn,
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 13px 19px;
+
+      border-radius: 13px;
+      border: 1px solid transparent;
+
+      font-weight: 800;
+      font-size: .92rem;
+
+      transition:
+        transform .25s,
+        box-shadow .25s,
+        background .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #17110b;
+
+      box-shadow:
+        0 10px 30px rgba(201,138,74,.20);
+    }
+
+    .btn-outline {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--card);
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 130px;
+
+      display: grid;
+      align-items: center;
+
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 650px;
+      height: 650px;
+
+      right: -250px;
+      top: 60px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(201,138,74,.18),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      max-width: 640px;
+
+      margin: 25px 0 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      margin-top: 35px;
+
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .trust-row span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--accent);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .portrait-wrap {
+      position: relative;
+
+      max-width: 470px;
+
+      margin-left: auto;
+
+      border: 1px solid var(--line);
+
+      padding: 12px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.01)
+        );
+
+      box-shadow: var(--shadow);
+
+      transform: rotate(1.2deg);
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+
+      aspect-ratio: 4/5;
+
+      object-fit: cover;
+      object-position: center top;
+
+      border-radius: 20px;
+    }
+
+    .floating-card {
+      position: absolute;
+
+      left: -30px;
+      bottom: 32px;
+
+      padding: 17px 19px;
+
+      border-radius: 17px;
+
+      background: rgba(20,20,21,.88);
+
+      backdrop-filter: blur(16px);
+
+      border: 1px solid var(--line);
+
+      box-shadow: var(--shadow);
+    }
+
+    body.light .floating-card {
+      background: rgba(255,255,255,.92);
+    }
+
+    .floating-card strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .floating-card small {
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       SECTION HEADINGS
+       ===================================================== */
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      align-items: end;
+
+      margin-bottom: 45px;
+    }
+
+    .section-head p {
+      max-width: 540px;
+    }
+
+
+    /* =====================================================
+       SERVICES
+       ===================================================== */
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 28px;
+
+      border: 1px solid var(--line);
+
+      background: var(--card);
+
+      border-radius: var(--radius);
+
+      min-height: 230px;
+
+      transition: .3s;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 120px;
+      height: 120px;
+
+      right: -60px;
+      bottom: -60px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(201,138,74,.09);
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(201,138,74,.42);
+
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 14px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        rgba(201,138,74,.12);
+
+      color: var(--accent-light);
+
+      font-size: 1.35rem;
+
+      margin-bottom: 25px;
+    }
+
+    .service-card p {
+      margin-top: 11px;
+      font-size: .92rem;
+    }
+
+
+    /* =====================================================
+       PRICING
+       ===================================================== */
+
+    .pricing-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--card);
+    }
+
+    .price-card.featured {
+      border-color:
+        rgba(201,138,74,.6);
+
+      box-shadow:
+        0 0 0 1px rgba(201,138,74,.12);
+    }
+
+    .price-card .tag {
+      display: inline-block;
+
+      font-size: .72rem;
+
+      font-weight: 900;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      color: var(--accent-light);
+
+      margin-bottom: 17px;
+    }
+
+    .price {
+      font-size: 2.25rem;
+
+      font-weight: 900;
+
+      letter-spacing: -.04em;
+
+      margin: 15px 0 8px;
+    }
+
+    .price small {
+      font-size: .85rem;
+
+      font-weight: 600;
+
+      color: var(--muted);
+    }
+
+    .price-list {
+      list-style: none;
+
+      margin: 23px 0 27px;
+    }
+
+    .price-list li {
+      padding: 9px 0;
+
+      color: var(--muted);
+
+      border-bottom:
+        1px solid var(--line);
+
+      font-size: .9rem;
+    }
+
+    .price-list li::before {
+      content: "✓";
+
+      color: var(--accent-light);
+
+      font-weight: 900;
+
+      margin-right: 9px;
+    }
+
+
+    /* =====================================================
+       PORTFOLIO
+       ===================================================== */
+
+    .work-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .work-card {
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      background: var(--card);
+    }
+
+    .work-img {
+      height: 250px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #30241c,
+          #c98a4a 55%,
+          #ead0af
+        );
+
+      display: grid;
+      place-items: center;
+
+      color: #17110d;
+
+      font-weight: 900;
+
+      font-size: 1.15rem;
+    }
+
+    .work-content {
+      padding: 20px;
+    }
+
+    .work-content p {
+      font-size: .87rem;
+
+      margin-top: 6px;
+    }
+
+
+    /* =====================================================
+       PROCESS
+       ===================================================== */
+
+    .process {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+    }
+
+    .step {
+      padding: 24px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 18px;
+
+      background: var(--bg-soft);
+    }
+
+    .step-num {
+      color: var(--accent-light);
+
+      font-size: .8rem;
+
+      font-weight: 900;
+
+      letter-spacing: .1em;
+
+      margin-bottom: 25px;
+    }
+
+
+    /* =====================================================
+       CONTACT
+       ===================================================== */
+
+    .contact-wrap {
+      display: grid;
+
+      grid-template-columns:
+        .8fr 1.2fr;
+
+      gap: 22px;
+    }
+
+    .contact-card,
+    .form-card {
+      border: 1px solid var(--line);
+
+      background: var(--card);
+
+      border-radius: var(--radius);
+
+      padding: 30px;
+    }
+
+    .contact-list {
+      list-style: none;
+
+      margin-top: 28px;
+    }
+
+    .contact-list li {
+      padding: 15px 0;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .contact-list span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: .78rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+
+      margin-bottom: 3px;
+    }
+
+
+    /* =====================================================
+       FORM
+       ===================================================== */
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: .82rem;
+
+      font-weight: 700;
+
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--line);
+
+      background: var(--bg-soft);
+
+      color: var(--text);
+
+      outline: none;
+
+      transition: .2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 125px;
+
+      resize: vertical;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      border-top: 1px solid var(--line);
+
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      color: var(--muted);
+
+      font-size: .86rem;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 20px;
+    }
+
+
+    /* =====================================================
+       WHATSAPP BUTTON
+       ===================================================== */
+
+    .whatsapp {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background: #25D366;
+
+      color: white;
+
+      font-size: 1.45rem;
+
+      box-shadow:
+        0 14px 35px rgba(0,0,0,.3);
+
+      z-index: 900;
+    }
+
+
+    /* =====================================================
+       ANIMATIONS
+       ===================================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition:
+        opacity .7s,
+        transform .7s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: none;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    .mobile-menu {
+      display: none;
+
+      padding:
+        15px 0 22px;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+
+      padding: 10px 0;
+
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .hero-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .portrait-wrap {
+        margin: 0 auto;
+      }
+
+      .services-grid,
+      .pricing-grid,
+      .work-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .process {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 15px;
+      }
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 600px) {
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .hero-grid {
+        gap: 45px;
+      }
+
+      h1 {
+        font-size: 3.1rem;
+      }
+
+      .services-grid,
+      .pricing-grid,
+      .work-grid,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .floating-card {
+        left: 12px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header id="header">
+
+    <div class="container">
+
+      <nav>
+
+        <a class="brand" href="#home">
+
+          <span class="brand-mark">
+            R
+          </span>
+
+          <span>
+            RenaTech
+          </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+          <a href="#services">
+            Services
+          </a>
+
+          <a href="#pricing">
+            Pricing
+          </a>
+
+          <a href="#work">
+            Portfolio
+          </a>
+
+          <a href="#process">
+            Process
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+          <button
+            class="icon-btn"
+            id="themeBtn"
+            aria-label="Toggle theme">
+            ☼
+          </button>
+
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%27d%20like%20to%20book%20a%20creative%20service."
+            target="_blank"
+            rel="noopener">
+
+            WhatsApp
+
+          </a>
+
+
+          <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu">
+
+            ☰
+
+          </button>
+
+        </div>
+
+      </nav>
+
+
+      <div
+        class="mobile-menu"
+        id="mobileMenu">
+
+        <a href="#services">
+          Services
+        </a>
+
+        <a href="#pricing">
+          Pricing
+        </a>
+
+        <a href="#work">
+          Portfolio
+        </a>
+
+        <a href="#process">
+          Process
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+
+    <section
+      class="hero"
+      id="home">
+
+      <div class="container hero-grid">
+
+
+        <div class="hero-copy reveal">
+
+          <div class="eyebrow">
+            Creative Media Studio
+          </div>
+
+
+          <h1>
+
+            Ideas made
+
+            <span style="color:var(--accent-light)">
+              visual.
+            </span>
+
+          </h1>
+
+
+          <p>
+
+            RenaTech helps individuals, brands and businesses
+            look professional with high-quality video editing,
+            photo retouching, talking flyers, graphic design,
+            video adverts and other creative digital services —
+            at affordable prices.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%27d%20like%20to%20place%20an%20order."
+              target="_blank"
+              rel="noopener">
+
+              Start a Project →
+
+            </a>
+
+
+            <a
+              class="btn btn-outline"
+              href="#services">
+
+              Explore Services
+
+            </a>
+
+          </div>
+
+
+          <div class="trust-row">
+
+            <span>
+              <i class="dot"></i>
+              Affordable pricing
+            </span>
+
+            <span>
+              <i class="dot"></i>
+              Professional results
+            </span>
+
+            <span>
+              <i class="dot"></i>
+              Fast communication
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- YOUR UPLOADED PHOTO -->
+
+        <div class="hero-visual reveal">
+
+          <div class="portrait-wrap">
+
+            <img
+              src="renatech-profile.jpg"
+              alt="RenaTech creative profile">
+
+          </div>
+
+
+          <div class="floating-card">
+
+            <strong>
+              Creative. Clean. Professional.
+            </strong>
+
+            <small>
+              Built for people who want their content
+              to stand out.
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         SERVICES
+         =================================================== -->
+
+    <section
+      class="section"
+      id="services">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              What I do
+            </div>
+
+            <h2>
+              Creative services that mean business.
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            From a simple social media design to a complete
+            promotional video, RenaTech gives your content
+            a polished and professional finish.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              🎬
+            </div>
+
+            <h3>
+              Video Editing
+            </h3>
+
+            <p>
+
+              Clean cuts, transitions, captions, music,
+              effects, colour enhancement and polished
+              social-media-ready videos.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              ✦
+            </div>
+
+            <h3>
+              Photo Editing
+            </h3>
+
+            <p>
+
+              Professional retouching, background cleanup,
+              colour correction, portrait enhancement
+              and creative photo finishing.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              ◉
+            </div>
+
+            <h3>
+              Talking Flyer
+            </h3>
+
+            <p>
+
+              Turn your flyer into an engaging talking
+              or animated promotional piece for WhatsApp,
+              Instagram and other platforms.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              ▣
+            </div>
+
+            <h3>
+              Graphic Design
+            </h3>
+
+            <p>
+
+              Flyers, posters, social media graphics,
+              business promotions, invitations, banners
+              and branded visual content.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              ▶
+            </div>
+
+            <h3>
+              Video Advert
+            </h3>
+
+            <p>
+
+              Attention-grabbing adverts designed to
+              communicate your offer clearly and make
+              your brand look credible.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="service-card reveal">
+
+            <div class="service-icon">
+              ＋
+            </div>
+
+            <h3>
+              Custom Creative Work
+            </h3>
+
+            <p>
+
+              Have a different idea? Tell RenaTech
+              what you need and get a tailored creative
+              solution for your project.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PRICING
+         =================================================== -->
+
+    <section
+      class="section"
+      id="pricing">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Affordable pricing
+            </div>
+
+            <h2>
+              Professional work without the heavy price tag.
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            Prices can vary depending on project complexity.
+            Contact RenaTech for an exact quote before work begins.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="pricing-grid">
+
+
+          <article class="price-card reveal">
+
+            <span class="tag">
+              Starter
+            </span>
+
+            <h3>
+              Simple Creative
+            </h3>
+
+            <div class="price">
+              Affordable
+              <small>
+                quote
+              </small>
+            </div>
+
+
+            <ul class="price-list">
+
+              <li>
+                Basic photo editing
+              </li>
+
+              <li>
+                Simple flyer design
+              </li>
+
+              <li>
+                Basic social media graphics
+              </li>
+
+              <li>
+                Quick communication
+              </li>
+
+            </ul>
+
+
+            <a
+              class="btn btn-outline"
+              href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%20want%20a%20Starter%20creative%20service."
+              target="_blank"
+              rel="noopener">
+
+              Get Quote
+
+            </a>
+
+          </article>
+
+
+
+          <article class="price-card featured reveal">
+
+            <span class="tag">
+              Popular
+            </span>
+
+            <h3>
+              Business Content
+            </h3>
+
+            <div class="price">
+
+              Custom
+
+              <small>
+                quote
+              </small>
+
+            </div>
+
+
+            <ul class="price-list">
+
+              <li>
+                Professional video editing
+              </li>
+
+              <li>
+                Graphic design package
+              </li>
+
+              <li>
+                Talking flyer
+              </li>
+
+              <li>
+                Social media-ready delivery
+              </li>
+
+            </ul>
+
+
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%20want%20a%20Business%20Content%20package."
+              target="_blank"
+              rel="noopener">
+
+              Get Quote
+
+            </a>
+
+          </article>
+
+
+
+          <article class="price-card reveal">
+
+            <span class="tag">
+              Premium
+            </span>
+
+            <h3>
+              Video Advert
+            </h3>
+
+            <div class="price">
+
+              Custom
+
+              <small>
+                quote
+              </small>
+
+            </div>
+
+
+            <ul class="price-list">
+
+              <li>
+                Advert concept & editing
+              </li>
+
+              <li>
+                Motion graphics & captions
+              </li>
+
+              <li>
+                Music / sound treatment
+              </li>
+
+              <li>
+                Professional final delivery
+              </li>
+
+            </ul>
+
+
+            <a
+              class="btn btn-outline"
+              href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%20need%20a%20Video%20Advert."
+              target="_blank"
+              rel="noopener">
+
+              Get Quote
+
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PORTFOLIO
+         =================================================== -->
+
+    <section
+      class="section"
+      id="work">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Selected work
+            </div>
+
+            <h2>
+              A portfolio section ready for your projects.
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            Replace these sample cards with your real work,
+            before-and-after images, client projects
+            or video thumbnails.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="work-grid">
+
+
+          <article class="work-card reveal">
+
+            <div class="work-img">
+              PHOTO EDITING
+            </div>
+
+            <div class="work-content">
+
+              <h3>
+                Portrait Retouching
+              </h3>
+
+              <p>
+                Clean, natural and professional image enhancement.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="work-card reveal">
+
+            <div class="work-img">
+              VIDEO EDITING
+            </div>
+
+            <div class="work-content">
+
+              <h3>
+                Social Video
+              </h3>
+
+              <p>
+                Short-form edits designed for modern social platforms.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="work-card reveal">
+
+            <div class="work-img">
+              GRAPHIC DESIGN
+            </div>
+
+            <div class="work-content">
+
+              <h3>
+                Brand Promotion
+              </h3>
+
+              <p>
+                Strong visual communication for products and businesses.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PROCESS
+         =================================================== -->
+
+    <section
+      class="section"
+      id="process">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Simple process
+            </div>
+
+            <h2>
+              From idea to final delivery.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="process">
+
+
+          <div class="step reveal">
+
+            <div class="step-num">
+              01 — BRIEF
+            </div>
+
+            <h3>
+              Tell me what you need
+            </h3>
+
+            <p>
+              Send your idea, files, references
+              and preferred deadline.
+            </p>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <div class="step-num">
+              02 — QUOTE
+            </div>
+
+            <h3>
+              Get an affordable quote
+            </h3>
+
+            <p>
+              Your project is reviewed and the price
+              is agreed before work starts.
+            </p>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <div class="step-num">
+              03 — CREATE
+            </div>
+
+            <h3>
+              Creative production
+            </h3>
+
+            <p>
+              Editing and design are completed
+              with attention to detail.
+            </p>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <div class="step-num">
+              04 — DELIVER
+            </div>
+
+            <h3>
+              Receive your final work
+            </h3>
+
+            <p>
+              Final files are delivered in
+              the format you need.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT
+         =================================================== -->
+
+    <section
+      class="section"
+      id="contact">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Let's work together
+            </div>
+
+            <h2>
+              Have a project in mind?
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            Send the details below. The form opens WhatsApp
+            with your project information so you can continue
+            the conversation directly.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="contact-wrap">
+
+
+          <!-- CONTACT INFORMATION -->
+
+          <div class="contact-card reveal">
+
+            <h3>
+              RenaTech
+            </h3>
+
+            <p style="margin-top:10px">
+
+              Creative media, editing and digital
+              design services at affordable prices.
+
+            </p>
+
+
+            <ul class="contact-list">
+
+
+              <li>
+
+                <span>
+                  WhatsApp
+                </span>
+
+                <a
+                  href="https://wa.me/2347035762348"
+                  target="_blank"
+                  rel="noopener">
+
+                  0703 576 2348
+
+                </a>
+
+              </li>
+
+
+              <li>
+
+                <span>
+                  Email
+                </span>
+
+                <a
+                  href="mailto:renewalanthony@gmail.com">
+
+                  renewalanthony@gmail.com
+
+                </a>
+
+              </li>
+
+
+              <li>
+
+                <span>
+                  Availability
+                </span>
+
+                Available for new creative projects
+
+              </li>
+
+
+            </ul>
+
+          </div>
+
+
+
+          <!-- PROJECT FORM -->
+
+          <div class="form-card reveal">
+
+            <form id="projectForm">
+
+
+              <div class="form-grid">
+
+
+                <div class="field">
+
+                  <label for="name">
+                    Your name
+                  </label>
+
+                  <input
+                    id="name"
+                    required
+                    placeholder="Enter your name">
+
+                </div>
+
+
+
+                <div class="field">
+
+                  <label for="service">
+                    Service
+                  </label>
+
+                  <select
+                    id="service"
+                    required>
+
+                    <option value="">
+                      Select a service
+                    </option>
+
+                    <option>
+                      Video Editing
+                    </option>
+
+                    <option>
+                      Photo Editing
+                    </option>
+
+                    <option>
+                      Talking Flyer
+                    </option>
+
+                    <option>
+                      Graphic Design
+                    </option>
+
+                    <option>
+                      Video Advert
+                    </option>
+
+                    <option>
+                      Custom Creative Work
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+
+                <div class="field">
+
+                  <label for="budget">
+                    Budget
+                  </label>
+
+                  <input
+                    id="budget"
+                    placeholder="e.g. ₦20,000">
+
+                </div>
+
+
+
+                <div class="field">
+
+                  <label for="deadline">
+                    Preferred deadline
+                  </label>
+
+                  <input
+                    id="deadline"
+                    type="date">
+
+                </div>
+
+
+
+                <div class="field full">
+
+                  <label for="message">
+                    Project details
+                  </label>
+
+                  <textarea
+                    id="message"
+                    required
+                    placeholder="Tell me about your project..."></textarea>
+
+                </div>
+
+
+
+                <div class="field full">
+
+                  <button
+                    class="btn btn-primary"
+                    type="submit">
+
+                    Send Project Request on WhatsApp →
+
+                  </button>
+
+                </div>
+
+
+              </div>
+
+            </form>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+
+        © <span id="year"></span>
+        RenaTech.
+        All rights reserved.
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="mailto:renewalanthony@gmail.com">
+          Email
+        </a>
+
+        <a
+          href="https://wa.me/2347035762348"
+          target="_blank"
+          rel="noopener">
+
+          WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       FLOATING WHATSAPP
+       ===================================================== -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/2347035762348?text=Hello%20RenaTech%2C%20I%27d%20like%20to%20make%20an%20enquiry."
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with RenaTech on WhatsApp">
+
+    ☎
+
+  </a>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+
+    const header =
+      document.getElementById("header");
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    /* =====================================================
+       HEADER SCROLL EFFECT
+       ===================================================== */
+
+    window.addEventListener("scroll", () => {
+
+      header.classList.toggle(
+        "scrolled",
+        window.scrollY > 20
+      );
+
+    });
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+       ===================================================== */
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("light");
+
+      const light =
+        document.body.classList.contains("light");
+
+      localStorage.setItem(
+        "renatech-theme",
+        light ? "light" : "dark"
+      );
+
+      themeBtn.textContent =
+        light ? "☾" : "☼";
+
+    });
+
+
+    /* Load saved theme */
+
+    if (
+      localStorage.getItem("renatech-theme")
+      === "light"
+    ) {
+
+      document.body.classList.add("light");
+
+      themeBtn.textContent = "☾";
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("open");
+
+    });
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mobileMenu.classList.remove("open");
+
+        });
+
+      });
+
+
+    /* =====================================================
+       SCROLL ANIMATIONS
+       ===================================================== */
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: .12
+        }
+
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(element => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* =====================================================
+       CURRENT YEAR
+       ===================================================== */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================================
+       PROJECT FORM → WHATSAPP
+       ===================================================== */
+
+    document
+      .getElementById("projectForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+          document
+            .getElementById("name")
+            .value
+            .trim();
+
+
+        const service =
+          document
+            .getElementById("service")
+            .value;
+
+
+        const budget =
+          document
+            .getElementById("budget")
+            .value
+            .trim()
+            || "Not specified";
+
+
+        const deadline =
+          document
+            .getElementById("deadline")
+            .value
+            || "Not specified";
+
+
+        const message =
+          document
+            .getElementById("message")
+            .value
+            .trim();
+
+
+        const whatsappMessage =
+
+`Hello RenaTech,
+
+I would like to request a creative service.
+
+Name: ${name}
+
+Service: ${service}
+
+Budget: ${budget}
+
+Preferred deadline: ${deadline}
+
+Project details:
+
+${message}
+
+Please let me know the price and next steps.
+
+Thank you.`;
+
+
+        const whatsappURL =
+          "https://wa.me/2347035762348?text="
+          +
+          encodeURIComponent(whatsappMessage);
+
+
+        window.open(
+          whatsappURL,
+          "_blank"
+        );
+
+      });
+
+  </script>
+
+
+</body>
+</html>
